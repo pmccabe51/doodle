@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace Emailer
 {
-    class Program
+    class Program : IEmailService
     {
         static void Main(string[] args)
         {
-            //test
+            EmailInfo email = new EmailInfo();
+            
+        }
+
+        public bool sendEmail(EmailInfo Obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
