@@ -8,6 +8,7 @@ namespace Emailer
 {
    public interface IEmailService
     {
+        //test
         bool sendEmail(EmailInfo Obj);
     }
 }
