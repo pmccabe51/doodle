@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Emailer
 {
-    class Program 
+    class Program
     {
         private EmailInfo emailInfo;
         static void Main(string[] args)
@@ -15,13 +15,27 @@ namespace Emailer
 
             IEmailService objEmail;
 
-           objEmail = new SMTPProvider();
-            
+            objEmail = new SMTPProvider();
+
             EmailSender_ConstInjection objSender = new EmailSender_ConstInjection(objEmail);
             objSender.Notification(emailInfo);
 
         }
 
+
+
+
+        private EmailInfo GetEmailInfo()
+        {
+            emailInfo = new EmailInfo();
+            emailInfo.EmailTo = "Test@test.com";
+            emailInfo.EmailFrom = "Test@test.com";
+            emailInfo.Subject = "Test";
+            emailInfo.Body = "This is a test";
+            return emailInfo;
+        }
+
+    }
         //This is the most common dependency injection.
         //When a class requires an instance of a dependency to work, we can supply that dependency through the class’s constructor. 
         public class EmailSender_ConstInjection
@@ -38,20 +52,7 @@ namespace Emailer
             }
         }
 
-     
-        private EmailInfo GetEmailInfo()
-        {
-            emailInfo = new EmailInfo();
-            emailInfo.EmailTo = "Test@test.com";
-            emailInfo.EmailFrom = "Test@test.com";
-            emailInfo.Subject = "Test";
-            emailInfo.Body = "This is a test";
-            return emailInfo;
-        }
 
 
-
-
-
-    }
+    
 }
