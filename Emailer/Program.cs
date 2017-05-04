@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EmailProvider;
+using EmailProvider.EmailImpl;
 
 namespace Emailer
 {
     class Program
     {
-        private EmailInfo emailInfo;
+        private static EmailInfo emailInfo;
         static void Main(string[] args)
         {
             GetEmailInfo();
 
             IEmailService objEmail;
 
-            objEmail = new SMTPProvider();
+            //objEmail = new SMTPProvider();
+            objEmail = new AmazonProvider();
 
             EmailSender_ConstInjection objSender = new EmailSender_ConstInjection(objEmail);
             objSender.Notification(emailInfo);
@@ -25,7 +23,7 @@ namespace Emailer
 
 
 
-        private EmailInfo GetEmailInfo()
+        private static EmailInfo GetEmailInfo()
         {
             emailInfo = new EmailInfo();
             emailInfo.EmailTo = "Test@test.com";
@@ -48,7 +46,7 @@ namespace Emailer
             }
             public void Notification(EmailInfo ObjEmailInfo)
             {
-                _iEmailService.SendMail(ObjEmailInfo);
+                _iEmailService.sendMail(ObjEmailInfo);
             }
         }
 

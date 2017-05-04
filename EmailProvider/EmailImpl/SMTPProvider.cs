@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Emailer
+namespace EmailProvider.EmailImpl
 {
-    class SMTPProvider : IEmailService
+    public class SMTPProvider : IEmailService
     {
         public bool sendMail(EmailInfo emailInfo)
         {
@@ -24,8 +20,9 @@ namespace Emailer
                 smtp.Send(message);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+                //PMC: in real world would log something here
                 return false;
             }
         }
