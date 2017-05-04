@@ -26,6 +26,7 @@ namespace Emailer
             }
             catch (Exception ex)
             {
+                //PMC: in real world would log something here
                 return false;
             }
         }

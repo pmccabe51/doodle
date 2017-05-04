@@ -8,7 +8,7 @@ namespace Emailer
 {
     class Program
     {
-        private EmailInfo emailInfo;
+        private static EmailInfo emailInfo;
         static void Main(string[] args)
         {
             GetEmailInfo();
@@ -25,7 +25,7 @@ namespace Emailer
 
 
 
-        private EmailInfo GetEmailInfo()
+        private static EmailInfo GetEmailInfo()
         {
             emailInfo = new EmailInfo();
             emailInfo.EmailTo = "Test@test.com";
@@ -48,7 +48,7 @@ namespace Emailer
             }
             public void Notification(EmailInfo ObjEmailInfo)
             {
-                _iEmailService.SendMail(ObjEmailInfo);
+                _iEmailService.sendMail(ObjEmailInfo);
             }
         }
 
