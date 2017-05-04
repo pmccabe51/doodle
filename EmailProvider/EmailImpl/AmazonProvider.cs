@@ -6,7 +6,8 @@ namespace EmailProvider.EmailImpl
     {
         public bool sendMail(EmailInfo Obj)
         {
-            throw new NotImplementedException();
+            //Do whatever is needed to send email via amazon
+            return true;
         }
     }
 }

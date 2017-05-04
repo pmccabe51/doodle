@@ -12,7 +12,8 @@ namespace Emailer
 
             IEmailService objEmail;
 
-            objEmail = new SMTPProvider();
+            //objEmail = new SMTPProvider();
+            objEmail = new AmazonProvider();
 
             EmailSender_ConstInjection objSender = new EmailSender_ConstInjection(objEmail);
             objSender.Notification(emailInfo);
